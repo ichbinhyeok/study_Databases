@@ -1,0 +1,10 @@
+SELECT
+    c.CategoryName,
+    COUNT(*) AS Product_Count
+FROM
+    Products p
+    INNER JOIN Categories c ON p.CategoryID = c.CategoryID
+WHERE
+    p.CategoryID IN (1, 7)
+GROUP BY
+    c.CategoryName;
