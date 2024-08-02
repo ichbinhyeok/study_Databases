@@ -1,4 +1,3 @@
-SELECT CategoryID, COUNT(*) as "개수"
-FROM Products
-GROUP BY CategoryID
+SELECT categoryID, COUNT(*) as "count" FROM products
+GROUP BY categoryID
 HAVING COUNT(*) >= 10;

@@ -1,10 +1,10 @@
 SELECT
     c.CategoryName,
-    COUNT(*) AS Product_Count
+    COUNT(*) AS '카운팅'
 FROM
-    Products p
-    INNER JOIN Categories c ON p.CategoryID = c.CategoryID
+    products p
+    INNER JOIN categories c ON p.categoryID = c.CategoryID
 WHERE
-    p.CategoryID IN (1, 7)
+    p.categoryID IN (1, 7)
 GROUP BY
-    c.CategoryName;
+    c.categoryName;
