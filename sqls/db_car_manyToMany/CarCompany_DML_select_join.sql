@@ -1,0 +1,19 @@
+SELECT
+    c.COMPANY AS 회사이름,
+    cn.CAR_NAME AS 자동차이름,
+    y.YEAR AS 연식,
+    COUNT(co.OPTIONS_PK) AS 옵션_갯수
+FROM
+    CAR_NAME_COMPANY_YEAR cny
+        JOIN COMPANY c ON cny.COMPANY_PK = c.COMPANY_PK
+        JOIN CAR_NAME cn ON cny.CAR_NAME_PK = cn.CAR_NAME_PK
+        JOIN YEAR y ON cny.YEAR_PK2 = y.YEAR_PK
+        LEFT JOIN CAR_PLUS_OPT co ON cn.CAR_NAME_PK = co.CAR_NAME_PK
+GROUP BY
+    c.COMPANY,
+    cn.CAR_NAME,
+    y.YEAR
+ORDER BY
+    c.COMPANY,
+    cn.CAR_NAME,
+    y.YEAR;
